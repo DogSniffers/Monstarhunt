@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import Header from './components/Header'
 // import Killlog from './components/Killlog'
-// import Local from './components/Local'
+import Locale from './components/Locale'
 
 
 import './App.css';
+
+
 
 class App extends Component {
   constructor() {
@@ -14,10 +16,18 @@ class App extends Component {
       captured: []
     }
   }
+
+  renameCreature(){
+    
+  }
+  releaseCreature(){
+
+  }
   render(){
     return (
       <div>
         <Header/>
+        <Locale/>
       </div>
     )
   }
