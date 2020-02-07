@@ -1,25 +1,25 @@
 module.exports = {monsters: [
-    {   name:'',
+    {   name:'Rabbit',
         class:'Beast',
         temperament:'Timid'
     },
-    {   name:'',
+    {   name:'Boar',
         class:'Beast',
         temperament:'Aggressive'
     },
-    {   name:'',
+    {   name:'Elephant',
         class:'Beast',
-        temperament:''
+        temperament:'Courageous'
     },
     {   name:'Imp',
         class:'Demon',
         temperament:'Timid'
     },
-    {   name:'',
+    {   name:'Lava-Worm',
         class:'Demon',
         temperament:''
     },
-    {   name:'',
+    {   name:'Hell-Wraith',
         class:'Demon',
         temperament:''
     },

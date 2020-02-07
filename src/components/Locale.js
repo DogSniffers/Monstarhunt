@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import Track from './Track'
-// import monsters from '../../server/monsters'
 import axios from 'axios'
 
 class Locale extends Component{
     constructor(){
         super()
         this.state = {
-            selectedLocale:[],
+            selectedLocale:[0,0,0],
             locale1Monsters: [],
             locale2Monsters: [],
             locale3Monsters: [],
@@ -56,15 +55,23 @@ class Locale extends Component{
         }
     }
     
-
     render(){
         console.log(this.state)
+        console.log(this.state.selectedLocale)
         return(
             <div>
                 <div onClick={() => this.locale1onClick()}>Forest</div>
                 <div onClick={() => this.locale2onClick()}>Hell</div>
                 <div onClick={() => this.locale3onClick()}>Crypt</div>
-        <div>{this.selectedLocale}</div>
+                <div>{this.state.selectedLocale[0].name}</div>
+                <div>{this.state.selectedLocale[0].class}</div>
+                <div>{this.state.selectedLocale[0].temperament}</div>
+                <div>{this.state.selectedLocale[1].name}</div>
+                <div>{this.state.selectedLocale[1].class}</div>
+                <div>{this.state.selectedLocale[1].temperament}</div>
+                <div>{this.state.selectedLocale[2].name}</div>
+                <div>{this.state.selectedLocale[2].class}</div>
+                <div>{this.state.selectedLocale[2].temperament}</div>
             </div>
         )
     }
