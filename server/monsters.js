@@ -1,4 +1,4 @@
-const monsters = [
+module.exports = {monsters: [
     {   name:'',
         class:'Beast',
         temperament:'Timid'
@@ -35,5 +35,4 @@ const monsters = [
         class:'Undead',
         temperament:'Studios'
     }
-];
-module.exports
+]};

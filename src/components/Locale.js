@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Track from './Track'
-import monsters from '../../server/monsters'
-import Axios from 'axios'
+// import monsters from '../../server/monsters'
+import axios from 'axios'
 
 class Locale extends Component{
     constructor(){
@@ -17,9 +17,27 @@ class Locale extends Component{
         }
     }
     componentDidMount(){
-        Axios.get(/api/locale1).then(res =>{
-            this.setState(locale1Monsters) = res.data
-        })
+        axios.get('/api/locales').then(res =>{
+            const allMonsters = res.data
+            console.log(allMonsters)
+            const locale12Monsters = []
+            const locale22Monsters = []
+            const locale32Monsters = []
+            allMonsters.forEach((element) => {
+                if(element.class === 'Beast'){
+                    locale12Monsters.push(element)
+                }if(element.class === 'Demon'){
+                    locale22Monsters.push(element)
+                }if(element.class === 'Undead'){
+                    locale32Monsters.push(element)
+                }
+             }
+         )
+            this.setState({locale1Monsters: locale12Monsters})
+            this.setState({locale2Monsters: locale22Monsters})
+            this.setState({locale3Monsters: locale32Monsters})
+                
+            }) 
     }
     
     locale1onClick(){
@@ -40,12 +58,13 @@ class Locale extends Component{
     
 
     render(){
-        // console.log(this.state)
+        console.log(this.state)
         return(
             <div>
                 <div onClick={() => this.locale1onClick()}>Forest</div>
                 <div onClick={() => this.locale2onClick()}>Hell</div>
                 <div onClick={() => this.locale3onClick()}>Crypt</div>
+        <div>{this.selectedLocale}</div>
             </div>
         )
     }
