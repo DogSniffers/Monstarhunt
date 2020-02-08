@@ -62,8 +62,8 @@ class Locale extends Component{
     }
     
     render(){
-        console.log(this.state)
-        console.log(this.state.selectedLocale)
+        // console.log(this.state)
+        // console.log(this.state.selectedLocale)
         return(
             <div>
                 <div className = {'locale'}>

@@ -1,4 +1,4 @@
-module.exports = {hunterLlamo: [
+module.exports = {hunter: [
     {
         ID:0,
         Name: 'Jefferey Douglas'

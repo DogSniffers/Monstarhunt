@@ -3,6 +3,7 @@ const app = express()
 const PORT =1666
 const cors = require('cors')
 const unknownCntrl = require('./controllers/unknownController')
+const hunterCntrl = require('./controllers/hunterController')
 app.use(express.json())
 app.use(cors())
 
