@@ -5,17 +5,16 @@ class Hunter extends Component{
     constructor(){
         super()
         this.state = {
-            hunterName:'i'
-
+            hunterName:''
         }
     }
     componentDidMount(){
-        axios.get('/api/hunters').then(res =>{
+        axios.get('/api/hunters'.hunters).then(res =>{
             console.log('hit')
             const person = res.data
             let randomNumber = Math.ceil(Math.random() * 4)
             person.forEach(element => {
-                if(person[element] === randomNumber){
+                if(person.element === randomNumber){
                     this.setState({hunterName:`${element.name}`})
                 }
             });

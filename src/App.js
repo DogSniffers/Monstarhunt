@@ -29,7 +29,6 @@ class App extends Component {
       <div>
         <Header/>
         <Hunter/>
-        <h1></h1>
         <Locale/>
       </div>
     )

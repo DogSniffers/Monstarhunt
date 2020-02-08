@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Track from './Track'
+// import Track from './Track'
 import axios from 'axios'
 
 class Locale extends Component{
