@@ -17,11 +17,11 @@ module.exports = {monsters: [
     },
     {   name:'Lava-Worm',
         class:'Demon',
-        temperament:''
+        temperament:'Feral'
     },
     {   name:'Hell-Wraith',
         class:'Demon',
-        temperament:''
+        temperament:'Scourge'
     },
     {   name:'Skeleton',
         class:'Undead',

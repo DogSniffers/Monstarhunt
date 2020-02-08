@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/Header'
 // import Killlog from './components/Killlog'
 import Locale from './components/Locale'
+import Hunter from './components/Hunter'
 
 
 import './App.css';
@@ -27,6 +28,8 @@ class App extends Component {
     return (
       <div>
         <Header/>
+        <Hunter/>
+        <h1></h1>
         <Locale/>
       </div>
     )

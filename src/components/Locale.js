@@ -12,7 +12,13 @@ class Locale extends Component{
             locale3Monsters: [],
             locale1Clicked: false,
             locale2Clicked: false,
-            locale3Clicked: false
+            locale3Clicked: false,
+            huntText: '',
+            classText:'',
+            temperamentText:'',
+            huntTitle: '',
+            huntMission:''
+
         }
     }
     componentDidMount(){
@@ -41,17 +47,17 @@ class Locale extends Component{
     
     locale1onClick(){
         if(this.state.locale1Clicked === false){
-            this.setState({locale1Clicked: true, locale2Clicked: false, locale3Clicked: false, selectedLocale: this.state.locale1Monsters})
+            this.setState({locale1Clicked: true, locale2Clicked: false, locale3Clicked: false, selectedLocale: this.state.locale1Monsters, huntText: 'HUNT:',classText: 'Class:', temperamentText: 'Temperament:'})
         }
     }
     locale2onClick(){
         if(this.state.locale2Clicked === false){
-            this.setState({locale1Clicked: false, locale2Clicked: true, locale3Clicked: false, selectedLocale: this.state.locale2Monsters})
+            this.setState({locale1Clicked: false, locale2Clicked: true, locale3Clicked: false, selectedLocale: this.state.locale2Monsters, huntText: 'HUNT:',classText: 'Class:', temperamentText: 'Temperament:'})
         }
     }
     locale3onClick(){
         if(this.state.locale3Clicked === false){
-            this.setState({locale1Clicked: false, locale2Clicked: false, locale3Clicked: true, selectedLocale: this.state.locale3Monsters})
+            this.setState({locale1Clicked: false, locale2Clicked: false, locale3Clicked: true, selectedLocale: this.state.locale3Monsters, huntText: 'HUNT:',classText: 'Class:', temperamentText: 'Temperament:'})
         }
     }
     
@@ -60,18 +66,27 @@ class Locale extends Component{
         console.log(this.state.selectedLocale)
         return(
             <div>
-                <div onClick={() => this.locale1onClick()}>Forest</div>
-                <div onClick={() => this.locale2onClick()}>Hell</div>
-                <div onClick={() => this.locale3onClick()}>Crypt</div>
-                <div>{this.state.selectedLocale[0].name}</div>
-                <div>{this.state.selectedLocale[0].class}</div>
-                <div>{this.state.selectedLocale[0].temperament}</div>
-                <div>{this.state.selectedLocale[1].name}</div>
-                <div>{this.state.selectedLocale[1].class}</div>
-                <div>{this.state.selectedLocale[1].temperament}</div>
-                <div>{this.state.selectedLocale[2].name}</div>
-                <div>{this.state.selectedLocale[2].class}</div>
-                <div>{this.state.selectedLocale[2].temperament}</div>
+                <div className = {'locale'}>
+                    <h1 onClick={() => this.locale1onClick()}>Forest</h1>
+                    <h1 onClick={() => this.locale2onClick()}>Hell</h1>
+                    <h1 onClick={() => this.locale3onClick()}>Crypt</h1>
+                </div>
+                <h1>{this.state.huntText}</h1>
+                <div>
+                    <h2>{this.state.selectedLocale[0].name}</h2>
+                    <div>{this.state.classText} {this.state.selectedLocale[0].class}</div>
+                    <div>{this.state.temperamentText} {this.state.selectedLocale[0].temperament}</div>
+                </div>
+                <div>
+                    <h2>{this.state.selectedLocale[1].name}</h2>
+                    <div>{this.state.classText} {this.state.selectedLocale[1].class}</div>
+                    <div>{this.state.temperamentText} {this.state.selectedLocale[1].temperament}</div>
+                </div>
+                <div>
+                    <h2>{this.state.selectedLocale[2].name}</h2>
+                    <div>{this.state.classText} {this.state.selectedLocale[2].class}</div>
+                    <div>{this.state.temperamentText} {this.state.selectedLocale[2].temperament}</div>
+                </div>
             </div>
         )
     }

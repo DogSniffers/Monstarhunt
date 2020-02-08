@@ -7,7 +7,7 @@ app.use(express.json())
 app.use(cors())
 
 app.get('/api/locales', unknownCntrl.monstersInLocale)
-// app.get()
+app.get('/api/hunters', hunterCntrl.hunterName)
 // app.put()query(need to google ;())
 // app.post()
 // app.delete()
