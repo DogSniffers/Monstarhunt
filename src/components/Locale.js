@@ -15,6 +15,7 @@ class Locale extends Component{
             locale1Clicked: false,
             locale2Clicked: false,
             locale3Clicked: false,
+            localeLock:false,
             huntText: '',
             classText:'',
             temperamentText:'',
@@ -57,19 +58,22 @@ class Locale extends Component{
         
     
     locale1onClick(){
+        if(this.state.localeLock === false){
         if(this.state.locale1Clicked === false){
-            this.setState({locale1Clicked: true, locale2Clicked: false, locale3Clicked: false, selectedLocale: this.state.locale1Monsters, huntText: 'HUNT:',classText: 'Class:', temperamentText: 'Temperament:'})
-        }
+            this.setState({locale1Clicked: true, locale2Clicked: false, locale3Clicked: false, selectedLocale: this.state.locale1Monsters, huntText: 'HUNT:',classText: 'Class:', temperamentText: 'Temperament:',localeLock:true,})
+        }}else{}
     }
     locale2onClick(){
+        if(this.state.localeLock === false){
         if(this.state.locale2Clicked === false){
-            this.setState({locale1Clicked: false, locale2Clicked: true, locale3Clicked: false, selectedLocale: this.state.locale2Monsters, huntText: 'HUNT:',classText: 'Class:', temperamentText: 'Temperament:'})
-        }
+            this.setState({locale1Clicked: false, locale2Clicked: true, locale3Clicked: false, selectedLocale: this.state.locale2Monsters, huntText: 'HUNT:',classText: 'Class:', temperamentText: 'Temperament:',localeLock:true,})
+        }}else{}
     }
     locale3onClick(){
+        if(this.state.localeLock === false){
         if(this.state.locale3Clicked === false){
-            this.setState({locale1Clicked: false, locale2Clicked: false, locale3Clicked: true, selectedLocale: this.state.locale3Monsters, huntText: 'HUNT:',classText: 'Class:', temperamentText: 'Temperament:'})
-        }
+            this.setState({locale1Clicked: false, locale2Clicked: false, locale3Clicked: true, selectedLocale: this.state.locale3Monsters, huntText: 'HUNT:',classText: 'Class:', temperamentText: 'Temperament:',localeLock:true,})
+        }}else{}
     }
     monster1onClick(){
         this.setState({questText:'QUEST:', monsterHunt:'HUNT', orText:'OR',monsterCapture:'CAPTURE'})
@@ -111,7 +115,7 @@ class Locale extends Component{
     }else{}
 }
     returnToHub(){
-        this.setState({selectedLocale:[],locale1Clicked:false,locale2Clicked:false,locale3Clicked:false,huntText:'',huntMission:'',questText:'',rewardText:'',monsterHunt:'',orText:'',monsterCapture:'',resultsText:'',noDuplicateQuest:false,returnToHub:'',classText:'',temperamentText:'',successText:'',failText:'',},)
+        this.setState({selectedLocale:[],locale1Clicked:false,locale2Clicked:false,locale3Clicked:false,huntText:'',huntMission:'',questText:'',rewardText:'',monsterHunt:'',orText:'',monsterCapture:'',resultsText:'',noDuplicateQuest:false,returnToHub:'',classText:'',temperamentText:'',successText:'',failText:'',localeLock:false,},)
     }
     render(){
         console.log(this.state)
