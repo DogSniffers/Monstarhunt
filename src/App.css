@@ -47,7 +47,17 @@
   height: 60px;
   background-color: chartreuse;
 }
-.boldify{
+.hunt{
   font-weight: bolder;
+  color: red;
+}
+.capture{
+  font-weight: bolder;
+  color: lime;
+}
+.success{
+  color: green;
+}
+.fail{
   color: red;
 }

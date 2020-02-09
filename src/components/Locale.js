@@ -25,7 +25,8 @@ class Locale extends Component{
             monsterHunt:'',
             orText:'',
             monsterCapture:'',
-            resultsText:'',
+            successText:'',
+            failText:'',
             noDuplicateQuest: false,
             returnToHub:'',
         }
@@ -86,11 +87,11 @@ class Locale extends Component{
         let huntFailComplete = Math.ceil(Math.random() * 10)
         console.log(huntFailComplete)
         if(huntFailComplete >= 2){
-            this.setState({resultsText:'SUCCESS'})
+            this.setState({successText:'SUCCESS'})
             
             
         }else{
-            this.setState({resultsText:'FAIL'})
+            this.setState({failText:'FAIL'})
         }
         this.setState({noDuplicateQuest:true})
         this.setState({returnToHub:'Return to Hub'})
@@ -101,16 +102,16 @@ class Locale extends Component{
             let captureFailComplete = Math.ceil(Math.random() * 10)
         console.log(captureFailComplete)
         if(captureFailComplete >= 5){
-            this.setState({resultsText:'SUCCESS'})
+            this.setState({successText:'SUCCESS'})
         }else{
-            this.setState({resultsText:'FAIL'})
+            this.setState({failText:'FAIL'})
         }
         this.setState({noDuplicateQuest:true})
         this.setState({returnToHub:'Return to Hub'})
     }else{}
 }
     returnToHub(){
-        this.setState({selectedLocale:[],locale1Clicked:false,locale2Clicked:false,locale3Clicked:false,huntText:'',huntMission:'',questText:'',rewardText:'',monsterHunt:'',orText:'',monsterCapture:'',resultsText:'',noDuplicateQuest:false,returnToHub:'',classText:'',temperamentText:''},)
+        this.setState({selectedLocale:[],locale1Clicked:false,locale2Clicked:false,locale3Clicked:false,huntText:'',huntMission:'',questText:'',rewardText:'',monsterHunt:'',orText:'',monsterCapture:'',resultsText:'',noDuplicateQuest:false,returnToHub:'',classText:'',temperamentText:'',successText:'',failText:'',},)
     }
     render(){
         console.log(this.state)
@@ -142,10 +143,11 @@ class Locale extends Component{
                     <div>{this.state.temperamentText} {this.state.selectedLocale[2]}</div>
                 </div>
         <h1>{this.state.questText}</h1>
-        <div className={'boldify'} onClick={() => this.huntonClick()}>{this.state.monsterHunt}</div>
+        <div className={'hunt'} onClick={() => this.huntonClick()}>{this.state.monsterHunt}</div>
         <p>{this.state.orText}</p>
-        <div className={'boldify'} onClick={() => this.captureonClick()}>{this.state.monsterCapture}</div>
-        <h1>{this.state.resultsText}</h1>
+        <div className={'capture'} onClick={() => this.captureonClick()}>{this.state.monsterCapture}</div>
+        <h1 className={'success'}>{this.state.successText}</h1>
+        <h1 className={'fail'}>{this.state.failText}</h1>
         <h1 onClick={() => this.returnToHub()}>{this.state.returnToHub}</h1>
         
         </div>
