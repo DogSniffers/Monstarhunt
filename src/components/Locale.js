@@ -21,29 +21,29 @@ class Locale extends Component{
 
         }
     }
-    componentDidMount(){
-        axios.get('/api/locales').then(res =>{
-            const allMonsters = res.data
-            console.log(allMonsters)
-            const locale12Monsters = []
-            const locale22Monsters = []
-            const locale32Monsters = []
-            allMonsters.forEach((element) => {
-                if(element.class === 'Beast'){
-                    locale12Monsters.push(element)
-                }if(element.class === 'Demon'){
-                    locale22Monsters.push(element)
-                }if(element.class === 'Undead'){
-                    locale32Monsters.push(element)
-                }
-             }
-         )
-            this.setState({locale1Monsters: locale12Monsters})
-            this.setState({locale2Monsters: locale22Monsters})
-            this.setState({locale3Monsters: locale32Monsters})
+    // componentDidMount(){
+    //     axios.get('/api/locales').then(res =>{
+    //         const allMonsters = res.data
+    //         console.log(allMonsters)
+    //         const locale12Monsters = []
+    //         const locale22Monsters = []
+    //         const locale32Monsters = []
+    //         allMonsters.forEach((element) => {
+    //             if(element.class === 'Beast'){
+    //                 locale12Monsters.push(element)
+    //             }if(element.class === 'Demon'){
+    //                 locale22Monsters.push(element)
+    //             }if(element.class === 'Undead'){
+    //                 locale32Monsters.push(element)
+    //             }
+    //          }
+    //      )
+    //         this.setState({locale1Monsters: locale12Monsters})
+    //         this.setState({locale2Monsters: locale22Monsters})
+    //         this.setState({locale3Monsters: locale32Monsters})
                 
-            }) 
-    }
+    //         }) 
+    // }
     
     locale1onClick(){
         if(this.state.locale1Clicked === false){
@@ -62,8 +62,8 @@ class Locale extends Component{
     }
     
     render(){
-        // console.log(this.state)
-        // console.log(this.state.selectedLocale)
+        console.log(this.state)
+        console.log(this.state.selectedLocale)
         return(
             <div>
                 <div className = {'locale'}>
@@ -73,19 +73,20 @@ class Locale extends Component{
                 </div>
                 <h1>{this.state.huntText}</h1>
                 <div>
-                    <h2>{this.state.selectedLocale[0].name}</h2>
-                    <div>{this.state.classText} {this.state.selectedLocale[0].class}</div>
-                    <div>{this.state.temperamentText} {this.state.selectedLocale[0].temperament}</div>
+                    {/* From Each h2 and div I removed the .name, .class, and .temperament after the [] */}
+                    <h2>{this.state.selectedLocale[0]}</h2>
+                    <div>{this.state.classText} {this.state.selectedLocale[0]}</div>
+                    <div>/{this.state.temperamentText} {this.state.selectedLocale[0]}</div>
                 </div>
                 <div>
-                    <h2>{this.state.selectedLocale[1].name}</h2>
-                    <div>{this.state.classText} {this.state.selectedLocale[1].class}</div>
-                    <div>{this.state.temperamentText} {this.state.selectedLocale[1].temperament}</div>
+                    <h2>{this.state.selectedLocale[1]}</h2>
+                    <div>{this.state.classText} {this.state.selectedLocale[1]}</div>
+                    <div>{this.state.temperamentText} {this.state.selectedLocale[1]}</div>
                 </div>
                 <div>
-                    <h2>{this.state.selectedLocale[2].name}</h2>
-                    <div>{this.state.classText} {this.state.selectedLocale[2].class}</div>
-                    <div>{this.state.temperamentText} {this.state.selectedLocale[2].temperament}</div>
+                    <h2>{this.state.selectedLocale[2]}</h2>
+                    <div>{this.state.classText} {this.state.selectedLocale[2]}</div>
+                    <div>{this.state.temperamentText} {this.state.selectedLocale[2]}</div>
                 </div>
             </div>
         )
