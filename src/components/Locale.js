@@ -87,7 +87,7 @@ class Locale extends Component{
         console.log(huntFailComplete)
         if(huntFailComplete >= 2){
             this.setState({resultsText:'SUCCESS'})
-            wallet += 10
+            
             
         }else{
             this.setState({resultsText:'FAIL'})
@@ -109,6 +109,9 @@ class Locale extends Component{
         this.setState({returnToHub:'Return to Hub'})
     }else{}
 }
+    returnToHub(){
+        this.setState({selectedLocale:[],locale1Clicked:false,locale2Clicked:false,locale3Clicked:false,huntText:'',huntMission:'',questText:'',rewardText:'',monsterHunt:'',orText:'',monsterCapture:'',resultsText:'',noDuplicateQuest:false,returnToHub:'',classText:'',temperamentText:''},)
+    }
     render(){
         console.log(this.state)
         console.log(this.state.selectedLocale)
@@ -143,7 +146,7 @@ class Locale extends Component{
         <p>{this.state.orText}</p>
         <div className={'boldify'} onClick={() => this.captureonClick()}>{this.state.monsterCapture}</div>
         <h1>{this.state.resultsText}</h1>
-        <h1>{this.state.returnToHub}</h1>
+        <h1 onClick={() => this.returnToHub()}>{this.state.returnToHub}</h1>
         
         </div>
         )
