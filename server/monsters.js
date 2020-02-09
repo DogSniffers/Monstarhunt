@@ -1,4 +1,4 @@
-module.exports = {monsters: [
+module.exports = { monsters: [
     {   name:'Rabbit',
         class:'Beast',
         temperament:'Timid'

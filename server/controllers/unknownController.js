@@ -3,6 +3,5 @@ const monsters = require('../monsters').monsters
 
 
 module.exports = {
-    monstersInLocale: (res) => {
-        console.log(monsters)
-    res.status(200).send(monsters)}}
+    monstersInLocale: (req, res) => {
+    return res.status(200).send(monsters)}}

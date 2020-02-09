@@ -1,6 +1,6 @@
-const captured = [];
-let id = 0;
+// const captured = [];
+// let id = 0;
 
-module.exports = {
+// module.exports = {
     
-}
+// }

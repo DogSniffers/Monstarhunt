@@ -40,3 +40,14 @@
   display:flex;
   justify-content: space-evenly;
 }
+.quest{
+  display: flex;
+  justify-content: space-evenly;
+  width: 20%;
+  height: 60px;
+  background-color: chartreuse;
+}
+.boldify{
+  font-weight: bolder;
+  color: red;
+}
