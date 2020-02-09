@@ -8,27 +8,31 @@ class Locale extends Component{
     constructor(){
         super()
         this.state = {
-            selectedLocale:[0,0,0],
-            locale1Monsters: [1,2,3],
-            locale2Monsters: [4,2,6],
-            locale3Monsters: [7,2,3],
-            locale1Clicked: false,
-            locale2Clicked: false,
-            locale3Clicked: false,
-            localeLock:false,
+            selectedLocale:[0,0,0,0],
+            locale1Monsters: [1,2,3,9],
+            locale2Monsters: [4,2,6,22],
+            locale3Monsters: [7,2,3,69],
+                locale1Clicked: false,
+                locale2Clicked: false,
+                locale3Clicked: false,
+                    localeLock:false,
             huntText: '',
-            classText:'',
-            temperamentText:'',
+                classText:'',
+                temperamentText:'',
             huntTitle: '',
-            huntMission:'',
+                huntMission:'',
             questText:'',
             rewardText:'',
+                selectedMonsterHuntReward:'',
+                selectedMonsterCaptureReward:'',
             monsterHunt:'',
-            orText:'',
+                orText:'',
             monsterCapture:'',
-            successText:'',
-            failText:'',
-            noDuplicateQuest: false,
+                successText:'',
+                failText:'',
+            rewardLock:false,
+                noDuplicateQuest: false,
+                
             returnToHub:'',
         }
     }
@@ -76,15 +80,21 @@ class Locale extends Component{
         }}else{}
     }
     monster1onClick(){
-        this.setState({questText:'QUEST:', monsterHunt:'HUNT', orText:'OR',monsterCapture:'CAPTURE'})
+        if(this.state.noDuplicateQuest === false){
+        this.setState({questText:'QUEST:', monsterHunt:'HUNT', orText:'OR',monsterCapture:'CAPTURE',rewardText:'Reward:',selectedMonsterHuntReward:this.state.selectedLocale[3]})
+        }else{}
     }
 
     monster2onClick(){
-        this.setState({questText:'QUEST:', monsterHunt:'HUNT', orText:'OR',monsterCapture:'CAPTURE'})
+        if(this.state.noDuplicateQuest === false){
+            this.setState({questText:'QUEST:', monsterHunt:'HUNT', orText:'OR',monsterCapture:'CAPTURE',rewardText:'Reward:',selectedMonsterHuntReward:this.state.selectedLocale[1]})
+        }else{}
     }
 
     monster3onClick(){
-        this.setState({questText:'QUEST:', monsterHunt:'HUNT', orText:'OR',monsterCapture:'CAPTURE'})
+        if(this.state.noDuplicateQuest ===false){
+            this.setState({questText:'QUEST:', monsterHunt:'HUNT', orText:'OR',monsterCapture:'CAPTURE',rewardText:'Reward:',selectedMonsterHuntReward:this.state.selectedLocale[3]})
+        }else{}
     }
     huntonClick(){
         if(this.state.noDuplicateQuest === false){
@@ -111,11 +121,12 @@ class Locale extends Component{
             this.setState({failText:'FAIL'})
         }
         this.setState({noDuplicateQuest:true})
-        this.setState({returnToHub:'Return to Hub'})
+        this.setState({returnToHub:'Return to Hub',rewardLock:true,questComplete:true,})
     }else{}
-}
+    }
+    
     returnToHub(){
-        this.setState({selectedLocale:[],locale1Clicked:false,locale2Clicked:false,locale3Clicked:false,huntText:'',huntMission:'',questText:'',rewardText:'',monsterHunt:'',orText:'',monsterCapture:'',resultsText:'',noDuplicateQuest:false,returnToHub:'',classText:'',temperamentText:'',successText:'',failText:'',localeLock:false,},)
+        this.setState({selectedLocale:[],locale1Clicked:false,locale2Clicked:false,locale3Clicked:false,huntText:'',huntMission:'',questText:'',rewardText:'',monsterHunt:'',selectedMonsterHuntReward:'',orText:'',monsterCapture:'',resultsText:'',noDuplicateQuest:false,returnToHub:'',classText:'',temperamentText:'',successText:'',failText:'',rewardText:'',localeLock:false,rewardLock:false,},)
     }
     render(){
         console.log(this.state)
@@ -146,13 +157,15 @@ class Locale extends Component{
                     <div>{this.state.classText} {this.state.selectedLocale[2]}</div>
                     <div>{this.state.temperamentText} {this.state.selectedLocale[2]}</div>
                 </div>
-        <h1>{this.state.questText}</h1>
-        <div className={'hunt'} onClick={() => this.huntonClick()}>{this.state.monsterHunt}</div>
-        <p>{this.state.orText}</p>
-        <div className={'capture'} onClick={() => this.captureonClick()}>{this.state.monsterCapture}</div>
-        <h1 className={'success'}>{this.state.successText}</h1>
-        <h1 className={'fail'}>{this.state.failText}</h1>
-        <h1 onClick={() => this.returnToHub()}>{this.state.returnToHub}</h1>
+            <h1>{this.state.questText}</h1>
+                <div className={'hunt'} onClick={() => this.huntonClick()}>{this.state.monsterHunt}</div>
+                <p>{this.state.rewardText}{this.state.selectedMonsterHuntReward}</p>
+                <p>{this.state.orText}</p>
+                <div className={'capture'} onClick={() => this.captureonClick()}>{this.state.monsterCapture}</div>
+                    <p>{this.state.rewardText}</p>
+            <h1 className={'success'}>{this.state.successText}</h1>
+            <h1 className={'fail'}>{this.state.failText}</h1>
+            <h1 onClick={() => this.returnToHub()}>{this.state.returnToHub}</h1>
         
         </div>
         )
