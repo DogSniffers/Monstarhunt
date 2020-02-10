@@ -82,19 +82,19 @@ class Locale extends Component{
     }
     monster1onClick(){
         if(this.state.noDuplicateQuest === false){
-        this.setState({questText:'QUEST:', monsterHunt:'HUNT', orText:'OR',monsterCapture:'CAPTURE',rewardText:'Reward:',selectedMonsterHuntReward:this.state.selectedLocale[0].huntReward})
+        this.setState({questText:'QUEST:', monsterHunt:'HUNT', orText:'OR',monsterCapture:'CAPTURE',rewardText:'Reward:',selectedMonsterHuntReward:this.state.selectedLocale[0].huntReward, selectedMonsterCaptureReward:this.state.selectedLocale[0].captureReward})
         }else{}
     }
 
     monster2onClick(){
         if(this.state.noDuplicateQuest === false){
-            this.setState({questText:'QUEST:', monsterHunt:'HUNT', orText:'OR',monsterCapture:'CAPTURE',rewardText:'Reward:',selectedMonsterHuntReward:this.state.selectedLocale[1].huntReward})
+            this.setState({questText:'QUEST:', monsterHunt:'HUNT', orText:'OR',monsterCapture:'CAPTURE',rewardText:'Reward:',selectedMonsterHuntReward:this.state.selectedLocale[1].huntReward, selectedMonsterCaptureReward:this.state.selectedLocale[1].captureReward})
         }else{}
     }
 
     monster3onClick(){
         if(this.state.noDuplicateQuest ===false){
-            this.setState({questText:'QUEST:', monsterHunt:'HUNT', orText:'OR',monsterCapture:'CAPTURE',rewardText:'Reward:',selectedMonsterHuntReward:this.state.selectedLocale[2].huntReward})
+            this.setState({questText:'QUEST:', monsterHunt:'HUNT', orText:'OR',monsterCapture:'CAPTURE',rewardText:'Reward:',selectedMonsterHuntReward:this.state.selectedLocale[2].huntReward, selectedMonsterCaptureReward:this.state.selectedLocale[2].captureReward})
         }else{}
     }
     huntonClick(){
@@ -142,7 +142,7 @@ class Locale extends Component{
                 </div>
                 <h1>{this.state.huntText}</h1>
                 
-                
+                <div className={'monsterProfiles'}>
                     <div >
                     {/* From Each h2 and div I removed the .name, .class, and .temperament after the [] */}
                     <h2 onClick={() => this.monster1onClick()}>{this.state.selectedLocale[0].name}</h2>
@@ -159,12 +159,13 @@ class Locale extends Component{
                     <div>{this.state.classText} {this.state.selectedLocale[2].class}</div>
                     <div>{this.state.temperamentText} {this.state.selectedLocale[2].temperament}</div>
                 </div>
+            </div>
             <h1>{this.state.questText}</h1>
                 <div className={'hunt'} onClick={() => this.huntonClick()}>{this.state.monsterHunt}</div>
                 <p>{this.state.rewardText}{this.state.selectedMonsterHuntReward}</p>
                 <p>{this.state.orText}</p>
                 <div className={'capture'} onClick={() => this.captureonClick()}>{this.state.monsterCapture}</div>
-                    <p>{this.state.rewardText}</p>
+                <p>{this.state.rewardText}{this.state.selectedMonsterCaptureReward}</p>
             <h1 className={'success'}>{this.state.successText}</h1>
             <h1 className={'fail'}>{this.state.failText}</h1>
             <h1 onClick={() => this.returnToHub()}>{this.state.returnToHub}</h1>

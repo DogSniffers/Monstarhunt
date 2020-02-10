@@ -61,3 +61,7 @@
 .fail{
   color: red;
 }
+.monsterProfiles{
+  display: flex;
+  justify-content: space-evenly;
+}
