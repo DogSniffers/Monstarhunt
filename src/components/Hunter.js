@@ -21,7 +21,7 @@ class Hunter extends Component{
                 hunterName: hunter[0].Name
             });
             axios.post('./api/you').then(res =>{
-                
+
             })
             console.log(hunter)
         })
@@ -36,12 +36,7 @@ class Hunter extends Component{
 
     render(){
         return(
-        <h2>{this.state.hunterName}
-        <button>Change Name</button>
-        </h2>
-        
-        
-        
+        <h2>{this.state.hunterName}</h2>
         )}
 }
 
