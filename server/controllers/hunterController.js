@@ -6,6 +6,5 @@ module.exports = {
         // hunters.push(res.data)
         // console.log(hunters)
         return res.status(200).send(hunter)},
-    changeHunterName:(req,res)=>{
-    }
+    
 }

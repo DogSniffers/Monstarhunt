@@ -11,8 +11,8 @@ app.use(cors())
 
 app.get('/api/locales', unknownCntrl.monstersInLocale);
 app.get('/api/hunters', hunterCntrl.hunterName)
-// app.put()query(need to google ;())
+app.put('/api/rewards/:name', rewardsCaptureCntrl.updateReward); 
 app.post('/api/rewards', rewardsCaptureCntrl.reward);
-app.delete('/api/rewards',)
+// app.delete('/api/rewards',rewardsCaptureCntrl.deleteReward);
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`) )

@@ -6,6 +6,7 @@ class Hunter extends Component{
         super()
         this.state = {
             hunterName:'broken',    
+            changeName:false,
         }
         // this.state.componentDidMount = this.componentDidMount.bind(this)
     }
@@ -18,12 +19,27 @@ class Hunter extends Component{
             let hunter = hunters.filter(e => e.ID === randomNumber)
             this.setState({
                 hunterName: hunter[0].Name
+            });
+            axios.post('./api/you').then(res =>{
+                
             })
+            console.log(hunter)
         })
+
     }
+        // changeName(){
+        //     if(changeName === false){
+        //         axios.put('/api/hunters:id')
+
+        //         }
+        //                 }
+
     render(){
         return(
-        <h2>{this.state.hunterName}</h2>
+        <h2>{this.state.hunterName}
+        <button>Change Name</button>
+        </h2>
+        
         
         
         )}

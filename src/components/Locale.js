@@ -146,6 +146,12 @@ class Locale extends Component{
         this.setState({returnToHub:'Return to Hub',rewardLock:true,questComplete:true,})
     }else{}
 }
+    alterReward = (name,newReward) => {
+        axios.put(`/api/rewards/${name}`,{newReward}).then(res => {
+            console.log(res.data)
+            this.setState({pouch: res.data})
+        })
+    }
     
     returnToHub(){
         this.setState({selectedLocale:[],locale1Clicked:false,locale2Clicked:false,locale3Clicked:false,huntText:'',huntMission:'',questText:'',rewardText:'',monsterHunt:'',selectedMonsterHuntReward:'',orText:'',monsterCapture:'',selectedMonsterCaptureReward:'',resultsText:'',noDuplicateQuest:false,returnToHub:'',classText:'',temperamentText:'',successText:'',failText:'',rewardText:'',localeLock:false,rewardLock:false,monster1Name:'',monster2Name:'',monster3Name:'',monster1Class:'',monster2Class:'',monster3Class:'',monster1Temperament:'',monster2Temperament:'',monster3Temperament:'',cashRewardText:'',cashReward:''},)
@@ -160,7 +166,7 @@ class Locale extends Component{
             <h1>Gold:{this.state.wallet}</h1>
             <h1>Pens:</h1>
             {this.state.pouch.map((item) =>{
-                return <Pouch item={item}/>
+                return <Pouch item={item} alterReward={this.alterReward}/>
                 })}
                 <div className = {'locale'}>
                     <h1 onClick={() => this.locale1onClick()}>Forest</h1>
