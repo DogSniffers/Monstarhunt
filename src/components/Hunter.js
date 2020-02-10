@@ -36,7 +36,7 @@ class Hunter extends Component{
 
     render(){
         return(
-        <h2>{this.state.hunterName}</h2>
+        <h2 className='huntername'>Hunter Name: {this.state.hunterName}</h2>
         )}
 }
 

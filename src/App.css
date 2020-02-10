@@ -71,3 +71,20 @@
   color: crimson;
   font-weight: bolder;
 }
+.huntername{
+  display: flex;
+  justify-content: center;
+  color: turquoise;
+}
+.gold{
+  color: gold;
+}
+.forest{
+  color: green
+}
+.hell{
+  color: crimson;
+}
+.crypt{
+  color: grey;
+}

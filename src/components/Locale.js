@@ -154,7 +154,7 @@ class Locale extends Component{
 }
     removeReward= (name) => {
         axios.delete(`api/rewards/${name}`).then(res => {
-            this.setState({pound: res.data})
+            this.setState({pouch: res.data})
         })
     }
     
@@ -168,16 +168,17 @@ class Locale extends Component{
         // console.log(this.state.monster1Name)
         return(
             <div>
-            <h1>Gold:{this.state.wallet}</h1>
+            <h1>Gold:</h1>
+            <h1 className='gold'>{this.state.wallet}č</h1>
             <h1>Pens:</h1>
             {this.state.pouch.map((item) =>{
                 console.log(item)
                 return <Pouch item={item} alterReward={this.alterReward} removeReward={this.removeReward}/>
                 })}
                 <div className = {'locale'}>
-                    <h1 onClick={() => this.locale1onClick()}>Forest</h1>
-                    <h1 onClick={() => this.locale2onClick()}>Hell</h1>
-                    <h1 onClick={() => this.locale3onClick()}>Crypt</h1>
+                    <h1 onClick={() => this.locale1onClick()} className='forest'>Forest</h1>
+                    <h1 onClick={() => this.locale2onClick()} className='hell'>Hell</h1>
+                    <h1 onClick={() => this.locale3onClick()} className='crypt'>Crypt</h1>
                 </div>
                 <h1>{this.state.huntText}</h1>
                 
