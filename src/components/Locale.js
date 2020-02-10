@@ -74,20 +74,20 @@ class Locale extends Component{
     locale1onClick(){
         if(this.state.localeLock === false){
         if(this.state.locale1Clicked === false){
-            this.setState({locale1Clicked: true, locale2Clicked: false, locale3Clicked: false, selectedLocale: this.state.locale1Monsters, huntText: 'HUNT:',classText: 'Class:', temperamentText: 'Temperament:',localeLock:true,monster1Name: this.state.locale1Monsters[0].name,monster1Class: this.state.locale1Monsters[0].class,monster1Temperament: this.state.locale1Monsters[0].temperament,monster2Name: this.state.locale1Monsters[1].name,monster2class: this.state.locale1Monsters[1].class,monster2Temperament:this.state.locale1Monsters[1].temperament,monster3Name: this.state.locale1Monsters[2].name,monster3class: this.state.locale1Monsters[2].class,monster3Temperament:this.state.locale1Monsters[2].temperament,})
+            this.setState({locale1Clicked: true, locale2Clicked: false, locale3Clicked: false, selectedLocale: this.state.locale1Monsters, huntText: 'HUNT:',classText: 'Class:', temperamentText: 'Temperament:',localeLock:true,monster1Name: this.state.locale1Monsters[0].name,monster1Class: this.state.locale1Monsters[0].class,monster1Temperament: this.state.locale1Monsters[0].temperament,monster2Name: this.state.locale1Monsters[1].name, monster2Class: this.state.locale1Monsters[1].class,monster2Temperament:this.state.locale1Monsters[1].temperament,monster3Name: this.state.locale1Monsters[2].name,monster3Class: this.state.locale1Monsters[2].class,monster3Temperament:this.state.locale1Monsters[2].temperament,})
         }}else{}
     }
     locale2onClick(){
         if(this.state.localeLock === false){
         if(this.state.locale2Clicked === false){
-            this.setState({locale1Clicked: false, locale2Clicked: true, locale3Clicked: false, selectedLocale: this.state.locale2Monsters, huntText: 'HUNT:',classText: 'Class:', temperamentText: 'Temperament:',localeLock:true,monster1Name: this.state.locale2Monsters[0].name,monster1Class: this.state.locale2Monsters[0].class,monster1Temperament: this.state.locale2Monsters[0].temperament,monster2Name: this.state.locale2Monsters[1].name,monster2class: this.state.locale2Monsters[1].class,monster2Temperament:this.state.locale2Monsters[1].temperament,monster3Name: this.state.locale2Monsters[2].name,monster3class: this.state.locale2Monsters[2].class,monster3Temperament:this.state.locale2Monsters[2].temperament,})
+            this.setState({locale1Clicked: false, locale2Clicked: true, locale3Clicked: false, selectedLocale: this.state.locale2Monsters, huntText: 'HUNT:',classText: 'Class:', temperamentText: 'Temperament:',localeLock:true,monster1Name: this.state.locale2Monsters[0].name,monster1Class: this.state.locale2Monsters[0].class,monster1Temperament: this.state.locale2Monsters[0].temperament,monster2Name: this.state.locale2Monsters[1].name,monster2Class: this.state.locale2Monsters[1].class,monster2Temperament:this.state.locale2Monsters[1].temperament,monster3Name: this.state.locale2Monsters[2].name,monster3Class: this.state.locale2Monsters[2].class,monster3Temperament:this.state.locale2Monsters[2].temperament,})
         }}else{}
         
     }
     locale3onClick(){
         if(this.state.localeLock === false){
         if(this.state.locale3Clicked === false){
-            this.setState({locale1Clicked: false, locale2Clicked: false, locale3Clicked: true, selectedLocale: this.state.locale3Monsters, huntText: 'HUNT:',classText: 'Class:', temperamentText: 'Temperament:',localeLock:true,monster1Name: this.state.locale3Monsters[0].name,monster1Class: this.state.locale3Monsters[0].class,monster1Temperament: this.state.locale3Monsters[0].temperament,monster2Name: this.state.locale3Monsters[1].name,monster2class: this.state.locale3Monsters[1].class,monster2Temperament:this.state.locale3Monsters[1].temperament,monster3Name: this.state.locale3Monsters[2].name,monster3class: this.state.locale3Monsters[2].class,monster3Temperament:this.state.locale3Monsters[2].temperament,})
+            this.setState({locale1Clicked: false, locale2Clicked: false, locale3Clicked: true, selectedLocale: this.state.locale3Monsters, huntText: 'HUNT:',classText: 'Class:', temperamentText: 'Temperament:',localeLock:true,monster1Name: this.state.locale3Monsters[0].name,monster1Class: this.state.locale3Monsters[0].class,monster1Temperament: this.state.locale3Monsters[0].temperament,monster2Name: this.state.locale3Monsters[1].name,monster2Class: this.state.locale3Monsters[1].class,monster2Temperament:this.state.locale3Monsters[1].temperament,monster3Name: this.state.locale3Monsters[2].name,monster3Class: this.state.locale3Monsters[2].class,monster3Temperament:this.state.locale3Monsters[2].temperament,})
         }}else{}
     }
     monster1onClick(){
@@ -137,7 +137,7 @@ class Locale extends Component{
     }
     
     returnToHub(){
-        this.setState({selectedLocale:[],locale1Clicked:false,locale2Clicked:false,locale3Clicked:false,huntText:'',huntMission:'',questText:'',rewardText:'',monsterHunt:'',selectedMonsterHuntReward:'',orText:'',monsterCapture:'',resultsText:'',noDuplicateQuest:false,returnToHub:'',classText:'',temperamentText:'',successText:'',failText:'',rewardText:'',localeLock:false,rewardLock:false,monster1Name:'',monster2name:'',monster3name:'',monster1Class:'',monster2class:'',monster3class:'',monster1Temperament:'',monster2Temperament:'',monster3Temperament:'',},)
+        this.setState({selectedLocale:[],locale1Clicked:false,locale2Clicked:false,locale3Clicked:false,huntText:'',huntMission:'',questText:'',rewardText:'',monsterHunt:'',selectedMonsterHuntReward:'',orText:'',monsterCapture:'',selectedMonsterCaptureReward:'',resultsText:'',noDuplicateQuest:false,returnToHub:'',classText:'',temperamentText:'',successText:'',failText:'',rewardText:'',localeLock:false,rewardLock:false,monster1Name:'',monster2Name:'',monster3Name:'',monster1Class:'',monster2Class:'',monster3Class:'',monster1Temperament:'',monster2Temperament:'',monster3Temperament:'',},)
     }
     render(){
         console.log(this.state)
@@ -162,7 +162,7 @@ class Locale extends Component{
                 </div>
                 <div >
                     <h2 onClick={() => this.monster2onClick()}>{this.state.monster2Name}</h2>
-                    <div>{this.state.classText} {this.state.monster2Name}</div>
+                    <div>{this.state.classText} {this.state.monster2Class}</div>
                     <div>{this.state.temperamentText} {this.state.monster2Temperament}</div>
                 </div>
                 <div >
