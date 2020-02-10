@@ -158,7 +158,7 @@ class Locale extends Component{
                     {/* From Each h2 and div I removed the .name, .class, and .temperament after the [] */}
                     <h2 onClick={() => this.monster1onClick()}>{this.state.monster1Name}</h2>
                     <div>{this.state.classText} {this.state.monster1Class}</div>
-                    <div>/{this.state.temperamentText} {this.state.monster1Temperament}</div>
+                    <div>{this.state.temperamentText} {this.state.monster1Temperament}</div>
                 </div>
                 <div >
                     <h2 onClick={() => this.monster2onClick()}>{this.state.monster2Name}</h2>
