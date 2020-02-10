@@ -8,6 +8,7 @@ class Locale extends Component{
     constructor(){
         super()
         this.state = {
+            wallet:100,
             selectedLocale:[0,0,0,0],
             locale1Monsters: [1,2,3,9],
             locale2Monsters: [4,2,6,22],
@@ -33,6 +34,8 @@ class Locale extends Component{
             questText:'',
             rewardText:'',
                 selectedMonsterHuntReward:'',
+                cashRewardText:'',
+                cashReward:0,
                 selectedMonsterCaptureReward:'',
             monsterHunt:'',
                 orText:'',
@@ -46,6 +49,7 @@ class Locale extends Component{
         }
         this.state.componentDidMount = this.componentDidMount.bind(this)
     }
+    
     componentDidMount(){
         axios.get('/api/locales').then(res =>{
            let allMonsters = res.data
@@ -92,19 +96,19 @@ class Locale extends Component{
     }
     monster1onClick(){
         if(this.state.noDuplicateQuest === false){
-        this.setState({questText:'QUEST:', monsterHunt:'HUNT', orText:'OR',monsterCapture:'CAPTURE',rewardText:'Reward:',selectedMonsterHuntReward:this.state.selectedLocale[0].huntReward, selectedMonsterCaptureReward:this.state.selectedLocale[0].captureReward})
+        this.setState({questText:'QUEST:', monsterHunt:'HUNT', orText:'OR',monsterCapture:'CAPTURE',rewardText:'Reward:',selectedMonsterHuntReward:this.state.selectedLocale[0].huntReward, selectedMonsterCaptureReward:this.state.selectedLocale[0].captureReward,cashRewardText:'Gold:',cashReward:this.state.selectedLocale[0].huntCashReward})
         }else{}
     }
 
     monster2onClick(){
         if(this.state.noDuplicateQuest === false){
-            this.setState({questText:'QUEST:', monsterHunt:'HUNT', orText:'OR',monsterCapture:'CAPTURE',rewardText:'Reward:',selectedMonsterHuntReward:this.state.selectedLocale[1].huntReward, selectedMonsterCaptureReward:this.state.selectedLocale[1].captureReward})
+            this.setState({questText:'QUEST:', monsterHunt:'HUNT', orText:'OR',monsterCapture:'CAPTURE',rewardText:'Reward:',selectedMonsterHuntReward:this.state.selectedLocale[1].huntReward, selectedMonsterCaptureReward:this.state.selectedLocale[1].captureReward,cashReward:this.state.selectedLocale[1].huntCashReward})
         }else{}
     }
 
     monster3onClick(){
         if(this.state.noDuplicateQuest ===false){
-            this.setState({questText:'QUEST:', monsterHunt:'HUNT', orText:'OR',monsterCapture:'CAPTURE',rewardText:'Reward:',selectedMonsterHuntReward:this.state.selectedLocale[2].huntReward, selectedMonsterCaptureReward:this.state.selectedLocale[2].captureReward})
+            this.setState({questText:'QUEST:', monsterHunt:'HUNT', orText:'OR',monsterCapture:'CAPTURE',rewardText:'Reward:',selectedMonsterHuntReward:this.state.selectedLocale[2].huntReward, selectedMonsterCaptureReward:this.state.selectedLocale[2].captureReward,cashReward:this.state.selectedLocale[2].huntCashReward})
         }else{}
     }
     huntonClick(){
@@ -112,8 +116,8 @@ class Locale extends Component{
         let huntFailComplete = Math.ceil(Math.random() * 10)
         console.log(huntFailComplete)
         if(huntFailComplete >= 2){
-            this.setState({successText:'SUCCESS'})
-            
+            this.setState({successText:'SUCCESS',})
+            this.setState({wallet: (this.state.wallet+this.state.huntCashReward)})
             
         }else{
             this.setState({failText:'FAIL'})
@@ -134,10 +138,10 @@ class Locale extends Component{
         this.setState({noDuplicateQuest:true})
         this.setState({returnToHub:'Return to Hub',rewardLock:true,questComplete:true,})
     }else{}
-    }
+}
     
     returnToHub(){
-        this.setState({selectedLocale:[],locale1Clicked:false,locale2Clicked:false,locale3Clicked:false,huntText:'',huntMission:'',questText:'',rewardText:'',monsterHunt:'',selectedMonsterHuntReward:'',orText:'',monsterCapture:'',selectedMonsterCaptureReward:'',resultsText:'',noDuplicateQuest:false,returnToHub:'',classText:'',temperamentText:'',successText:'',failText:'',rewardText:'',localeLock:false,rewardLock:false,monster1Name:'',monster2Name:'',monster3Name:'',monster1Class:'',monster2Class:'',monster3Class:'',monster1Temperament:'',monster2Temperament:'',monster3Temperament:'',},)
+        this.setState({selectedLocale:[],locale1Clicked:false,locale2Clicked:false,locale3Clicked:false,huntText:'',huntMission:'',questText:'',rewardText:'',monsterHunt:'',selectedMonsterHuntReward:'',orText:'',monsterCapture:'',selectedMonsterCaptureReward:'',resultsText:'',noDuplicateQuest:false,returnToHub:'',classText:'',temperamentText:'',successText:'',failText:'',rewardText:'',localeLock:false,rewardLock:false,monster1Name:'',monster2Name:'',monster3Name:'',monster1Class:'',monster2Class:'',monster3Class:'',monster1Temperament:'',monster2Temperament:'',monster3Temperament:'',cashRewardText:'',},)
     }
     render(){
         console.log(this.state)
@@ -146,6 +150,7 @@ class Locale extends Component{
         console.log(this.state.monster1Name)
         return(
             <div>
+            <h1>Gold:{this.state.wallet}</h1>
                 <div className = {'locale'}>
                     <h1 onClick={() => this.locale1onClick()}>Forest</h1>
                     <h1 onClick={() => this.locale2onClick()}>Hell</h1>
@@ -173,7 +178,7 @@ class Locale extends Component{
             </div>
             <h1>{this.state.questText}</h1>
                 <div className={'hunt'} onClick={() => this.huntonClick()}>{this.state.monsterHunt}</div>
-                <p>{this.state.rewardText}{this.state.selectedMonsterHuntReward}</p>
+        <p>{this.state.rewardText}{this.state.selectedMonsterHuntReward} {this.state.cashRewardText}{this.state.huntCashReward}</p>
                 <p>{this.state.orText}</p>
                 <div className={'capture'} onClick={() => this.captureonClick()}>{this.state.monsterCapture}</div>
                 <p>{this.state.rewardText}{this.state.selectedMonsterCaptureReward}</p>
