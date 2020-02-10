@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Quest from './Quest'
 import axios from 'axios'
+import Pouch from './PouchItems'
 
 
 
@@ -44,7 +45,7 @@ class Locale extends Component{
                 failText:'',
             rewardLock:false,
                 noDuplicateQuest: false,
-                pouch:'',
+                pouch:[],
                 
             returnToHub:'',
         }
@@ -135,7 +136,7 @@ class Locale extends Component{
         if(captureFailComplete >= 5){
             this.setState({successText:'SUCCESS'})
             axios.post('api/rewards', {selectedMonsterCaptureReward}).then(res => {
-                this.setState({pouch :`${res.data} `})
+                this.setState({pouch :res.data})
         })
             
         }else{
@@ -157,7 +158,10 @@ class Locale extends Component{
         return(
             <div>
             <h1>Gold:{this.state.wallet}</h1>
-            <h1>Pouch:{this.state.pouch}</h1>
+            <h1>Pens:</h1>
+            {this.state.pouch.map((item) =>{
+                return <Pouch item={item}/>
+                })}
                 <div className = {'locale'}>
                     <h1 onClick={() => this.locale1onClick()}>Forest</h1>
                     <h1 onClick={() => this.locale2onClick()}>Hell</h1>
