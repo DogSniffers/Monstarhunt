@@ -6,7 +6,7 @@ let id = 0;
 
 module.exports = {
     monstersInLocale: (req, res) => {
-    return res.status(200).send(monsters).monsters},
+    return res.status(200).send(monsters)},
 
     captureMonster: (req, res) =>{
         const {monstersCaught} = req.body

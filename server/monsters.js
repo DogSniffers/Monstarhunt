@@ -1,38 +1,56 @@
 module.exports = { monsters: [
     {   name:'Rabbit',
         class:'Beast',
-        temperament:'Timid'
+        temperament:'Timid',
+        huntReward:'Rabbit-Leg',
+        captureReward:'Rabbit',
     },
     {   name:'Boar',
         class:'Beast',
-        temperament:'Aggressive'
+        temperament:'Aggressive',
+        huntReward:'Boars-Head',
+        captureReward:'Boar',
     },
     {   name:'Elephant',
         class:'Beast',
-        temperament:'Courageous'
+        temperament:'Terrortorial',
+        huntReward:'Elephant-Tusks',
+        captureReward:'Elephant',
     },
     {   name:'Imp',
         class:'Demon',
-        temperament:'Timid'
+        temperament:'Timid',
+        huntReward:'Imp-Staff',
+        captureReward:'Imp',
     },
     {   name:'Lava-Worm',
         class:'Demon',
-        temperament:'Feral'
+        temperament:'Feral',
+        huntReward:'Lava-Worm-Eyes',
+        captureReward:'Lava-Worm',
     },
     {   name:'Hell-Wraith',
         class:'Demon',
-        temperament:'Scourge'
+        temperament:'Scourge',
+        huntReward:'Lost-Souls',
+        captureReward:'Hell-Wraith',
     },
     {   name:'Skeleton',
         class:'Undead',
-        temperament:'Mindless'
+        temperament:'Mindless',
+        huntReward:'Bones',
+        captureReward:'Skeleton',
     },
     {   name:'Zombie',
         class:'Undead',
-        temperament:'Highly Aggressive'
+        temperament:'Highly Aggressive',
+        huntReward:'Undead-Brain',
+        captureReward:'Zombie',
     },
     {   name:'Necromancer',
         class:'Undead',
-        temperament:'Studios'
+        temperament:'Studios',
+        huntReward:'Necronomicon',
+        captureReward:'Necromancer',
     }
 ]};
