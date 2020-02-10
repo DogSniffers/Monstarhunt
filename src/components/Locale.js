@@ -35,6 +35,7 @@ class Locale extends Component{
                 
             returnToHub:'',
         }
+        this.state.componentDidMount = this.componentDidMount.bind(this)
     }
     componentDidMount(){
         axios.get('/api/locales').then(res =>{
@@ -129,8 +130,8 @@ class Locale extends Component{
         this.setState({selectedLocale:[],locale1Clicked:false,locale2Clicked:false,locale3Clicked:false,huntText:'',huntMission:'',questText:'',rewardText:'',monsterHunt:'',selectedMonsterHuntReward:'',orText:'',monsterCapture:'',resultsText:'',noDuplicateQuest:false,returnToHub:'',classText:'',temperamentText:'',successText:'',failText:'',rewardText:'',localeLock:false,rewardLock:false,},)
     }
     render(){
-        console.log(this.state)
-        console.log(this.state.selectedLocale)
+        // console.log(this.state)
+        // console.log(this.state.selectedLocale)
         return(
             <div>
                 <div className = {'locale'}>

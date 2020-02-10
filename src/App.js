@@ -3,6 +3,7 @@ import Header from './components/Header'
 // import Killlog from './components/Killlog'
 import Locale from './components/Locale'
 // import Hunter from './components/Hunter'
+import axios from 'axios'
 
 
 import './App.css';
