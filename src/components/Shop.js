@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import axios from 'axios'
 
 class Shop extends Component{
     constructor(){
@@ -14,6 +15,7 @@ class Shop extends Component{
             shop2Cost:0,
             shop3Cost:0
         }
+        this.componentDidMount = this.componentDidMount.bind(this)
     }
     render(){
         return(

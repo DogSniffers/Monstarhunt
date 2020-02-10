@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Header from './components/Header'
 // import Killlog from './components/Killlog'
 import Locale from './components/Locale'
-// import Hunter from './components/Hunter'
+import Hunter from './components/Hunter'
+// import Shop from './App.test/Shop'
 import axios from 'axios'
 
 
@@ -19,7 +20,7 @@ class App extends Component {
     }
   }
 
-  renameCreature(){
+  renameHunter(){
     
   }
   releaseCreature(){
@@ -29,7 +30,7 @@ class App extends Component {
     return (
       <div>
         <Header/>
-        {/* <Hunter/> */}
+        <Hunter/>
         <Locale/>
       </div>
     )

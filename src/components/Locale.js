@@ -117,14 +117,14 @@ class Locale extends Component{
         console.log(huntFailComplete)
         if(huntFailComplete >= 2){
             this.setState({successText:'SUCCESS',})
-            this.setState({wallet: (this.state.wallet+this.state.huntCashReward)})
+            this.setState({wallet:this.state.wallet + this.state.cashReward})
             
         }else{
             this.setState({failText:'FAIL'})
         }
         this.setState({noDuplicateQuest:true})
         this.setState({returnToHub:'Return to Hub'})
-        }else{}
+        }
     }
     captureonClick(){
         if(this.state.noDuplicateQuest === false){
@@ -132,6 +132,11 @@ class Locale extends Component{
         console.log(captureFailComplete)
         if(captureFailComplete >= 5){
             this.setState({successText:'SUCCESS'})
+            axios.post('api/locales').then(res => {
+            let captured = res.data
+            console.log(captured)
+        })
+            
         }else{
             this.setState({failText:'FAIL'})
         }
@@ -141,13 +146,13 @@ class Locale extends Component{
 }
     
     returnToHub(){
-        this.setState({selectedLocale:[],locale1Clicked:false,locale2Clicked:false,locale3Clicked:false,huntText:'',huntMission:'',questText:'',rewardText:'',monsterHunt:'',selectedMonsterHuntReward:'',orText:'',monsterCapture:'',selectedMonsterCaptureReward:'',resultsText:'',noDuplicateQuest:false,returnToHub:'',classText:'',temperamentText:'',successText:'',failText:'',rewardText:'',localeLock:false,rewardLock:false,monster1Name:'',monster2Name:'',monster3Name:'',monster1Class:'',monster2Class:'',monster3Class:'',monster1Temperament:'',monster2Temperament:'',monster3Temperament:'',cashRewardText:'',},)
+        this.setState({selectedLocale:[],locale1Clicked:false,locale2Clicked:false,locale3Clicked:false,huntText:'',huntMission:'',questText:'',rewardText:'',monsterHunt:'',selectedMonsterHuntReward:'',orText:'',monsterCapture:'',selectedMonsterCaptureReward:'',resultsText:'',noDuplicateQuest:false,returnToHub:'',classText:'',temperamentText:'',successText:'',failText:'',rewardText:'',localeLock:false,rewardLock:false,monster1Name:'',monster2Name:'',monster3Name:'',monster1Class:'',monster2Class:'',monster3Class:'',monster1Temperament:'',monster2Temperament:'',monster3Temperament:'',cashRewardText:'',cashReward:''},)
     }
     render(){
-        console.log(this.state)
+        // console.log(this.state)
         // console.log(this.state.locale1Monsters)
-        console.log(this.state.locale1Monsters[1].name)
-        console.log(this.state.monster1Name)
+        // console.log(this.state.locale1Monsters[1].name)
+        // console.log(this.state.monster1Name)
         return(
             <div>
             <h1>Gold:{this.state.wallet}</h1>
@@ -160,7 +165,7 @@ class Locale extends Component{
                 
                 <div className={'monsterProfiles'}>
                     <div >
-                    {/* From Each h2 and div I removed the .name, .class, and .temperament after the [] */}
+                 
                     <h2 onClick={() => this.monster1onClick()}>{this.state.monster1Name}</h2>
                     <div>{this.state.classText} {this.state.monster1Class}</div>
                     <div>{this.state.temperamentText} {this.state.monster1Temperament}</div>
@@ -178,7 +183,7 @@ class Locale extends Component{
             </div>
             <h1>{this.state.questText}</h1>
                 <div className={'hunt'} onClick={() => this.huntonClick()}>{this.state.monsterHunt}</div>
-        <p>{this.state.rewardText}{this.state.selectedMonsterHuntReward} {this.state.cashRewardText}{this.state.huntCashReward}</p>
+        <p>{this.state.rewardText}{this.state.selectedMonsterHuntReward} {this.state.cashRewardText}{this.state. cashReward}</p>
                 <p>{this.state.orText}</p>
                 <div className={'capture'} onClick={() => this.captureonClick()}>{this.state.monsterCapture}</div>
                 <p>{this.state.rewardText}{this.state.selectedMonsterCaptureReward}</p>
