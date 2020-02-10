@@ -22,5 +22,14 @@ module.exports = {
         })
         rewards.splice(index,1,newReward)
         res.status(200).send(rewards)
+    },
+
+    deleteReward:(req,res)=>{
+        const {name} = req.params
+        const index = rewards.findIndex(element =>{
+            return element === name
+        })
+        rewards.splice(index,1)
+        res.status(200).send(rewards)
     }
 }

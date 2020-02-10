@@ -13,7 +13,9 @@ class Pouch extends React.Component{
     }
     render(){
         return (
-        <div>{this.props.item}<button onClick={() => this.props.alterReward(this.props.item,this.state.userInput)}>Update</button><input onChange={(e) => this.handleChange(e.target.value)}></input></div>
+        <div>{this.props.item}<button onClick={() => this.props.alterReward(this.props.item,this.state.userInput)}>Update Name</button><input onChange={(e) => this.handleChange(e.target.value)}>
+            </input>
+            <button onClick={() => this.props.removeReward(this.props.item)}>Delete</button></div>
         )
     }}
     export default Pouch
