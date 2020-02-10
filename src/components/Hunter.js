@@ -23,7 +23,7 @@ class Hunter extends Component{
     }
     render(){
         return(
-        <h2>{this.state.hunterName}<button>Delete Name</button></h2>
+        <h2>{this.state.hunterName}</h2>
         
         
         )}

@@ -15,16 +15,9 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      log: [],
-      captured: []
+      // log: [],
+      // captured: []
     }
-  }
-
-  renameHunter(){
-    
-  }
-  releaseCreature(){
-
   }
   render(){
     return (

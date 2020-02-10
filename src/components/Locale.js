@@ -35,7 +35,7 @@ class Locale extends Component{
             rewardText:'',
                 selectedMonsterHuntReward:'',
                 cashRewardText:'',
-                cashReward:0,
+                cashReward:'',
                 selectedMonsterCaptureReward:'',
             monsterHunt:'',
                 orText:'',
@@ -44,6 +44,7 @@ class Locale extends Component{
                 failText:'',
             rewardLock:false,
                 noDuplicateQuest: false,
+                pouch:'',
                 
             returnToHub:'',
         }
@@ -127,14 +128,14 @@ class Locale extends Component{
         }
     }
     captureonClick(){
+        const {selectedMonsterCaptureReward} = this.state
         if(this.state.noDuplicateQuest === false){
             let captureFailComplete = Math.ceil(Math.random() * 10)
-        console.log(captureFailComplete)
+        // console.log(captureFailComplete)
         if(captureFailComplete >= 5){
             this.setState({successText:'SUCCESS'})
-            axios.post('api/locales').then(res => {
-            let captured = res.data
-            console.log(captured)
+            axios.post('api/rewards', {selectedMonsterCaptureReward}).then(res => {
+                this.setState({pouch :`${res.data} `})
         })
             
         }else{
@@ -149,13 +150,14 @@ class Locale extends Component{
         this.setState({selectedLocale:[],locale1Clicked:false,locale2Clicked:false,locale3Clicked:false,huntText:'',huntMission:'',questText:'',rewardText:'',monsterHunt:'',selectedMonsterHuntReward:'',orText:'',monsterCapture:'',selectedMonsterCaptureReward:'',resultsText:'',noDuplicateQuest:false,returnToHub:'',classText:'',temperamentText:'',successText:'',failText:'',rewardText:'',localeLock:false,rewardLock:false,monster1Name:'',monster2Name:'',monster3Name:'',monster1Class:'',monster2Class:'',monster3Class:'',monster1Temperament:'',monster2Temperament:'',monster3Temperament:'',cashRewardText:'',cashReward:''},)
     }
     render(){
-        // console.log(this.state)
+        console.log(this.state)
         // console.log(this.state.locale1Monsters)
         // console.log(this.state.locale1Monsters[1].name)
         // console.log(this.state.monster1Name)
         return(
             <div>
             <h1>Gold:{this.state.wallet}</h1>
+            <h1>Pouch:{this.state.pouch}</h1>
                 <div className = {'locale'}>
                     <h1 onClick={() => this.locale1onClick()}>Forest</h1>
                     <h1 onClick={() => this.locale2onClick()}>Hell</h1>
