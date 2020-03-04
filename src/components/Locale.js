@@ -175,11 +175,13 @@ class Locale extends Component{
                 console.log(item)
                 return <Pouch item={item} alterReward={this.alterReward} removeReward={this.removeReward}/>
                 })}
-                <div className = {'locale'}>
-                    <h1 onClick={() => this.locale1onClick()} className='forest'>Forest</h1>
-                    <h1 onClick={() => this.locale2onClick()} className='hell'>Hell</h1>
-                    <h1 onClick={() => this.locale3onClick()} className='crypt'>Crypt</h1>
-                </div>
+                <h1 className ='localesText'>Locales:</h1>
+                    <div className = {'locale'}>
+                        <h1 onClick={() => this.locale1onClick()} className='forest'>Forest</h1>
+                        <h1 onClick={() => this.locale2onClick()} className='hell'>Hell</h1>
+                        <h1 onClick={() => this.locale3onClick()} className='crypt'>Crypt</h1>
+                    </div>
+                
                 <h1>{this.state.huntText}</h1>
                 
                 <div className={'monsterProfiles'}>

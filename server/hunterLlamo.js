@@ -1,7 +1,7 @@
 module.exports = {hunter: [
     {
         ID:0,
-        Name: 'Jefferey Douglas'
+        Name: 'Local Pool-Boy'
     },
     {
         ID:1,
@@ -9,11 +9,11 @@ module.exports = {hunter: [
     },
     {
         ID:2,
-        Name: 'Samantha Gandolph'
+        Name: 'The Man Himself'
     },
     {
         ID:3,
-        Name: 'Lizzie Baker'
+        Name: 'Lizard'
     },
     {
         ID:4,

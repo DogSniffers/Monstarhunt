@@ -88,3 +88,8 @@
 .crypt{
   color: grey;
 }
+.localesText{
+  display: flex;
+  justify-content: center;
+  font-weight: bolder;
+}
